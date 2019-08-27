@@ -55,9 +55,8 @@ def get_distance():
     pulse_len = finish - start
     distance_cm = pulse_len * 340 *100 /2
     distance_in = distance_cm / 2.5
-    return (distance_cm, distance_in)
+    #return (distance_cm, distance_in)
+	return distance_cm
 
-while True:
-    print("cm=%f\tinches=%f" % get_distance())
-    time.sleep(1)
-
+def PiDevice_GetChoInBo_Distance():
+	return get_distance()
