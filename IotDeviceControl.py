@@ -53,7 +53,6 @@ def IotDeviceState_TrashCount_PlusOne():
     }
     
     response = requests.get(apiURL, headers=headers)
-    print(response.text)
     jdict = json.loads(response.text)
     recent_trash_count = jdict[1]['value'][0]
     
