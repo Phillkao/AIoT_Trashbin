@@ -56,3 +56,12 @@ def get_distance():
 
 def PiDevice_GetChoInBo_Distance():
     return get_distance()
+
+import picamera
+import time
+
+def PiDevice_GetCamera_Picture():
+    camera = picamera.PiCamera()
+    camera.resolution = (224, 224)
+    time.sleep(5) # Camera warm-up time
+    camera.capture('trash.png')
