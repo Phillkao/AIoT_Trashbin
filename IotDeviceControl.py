@@ -71,5 +71,5 @@ def IotDeviceState_TrashCount_Clean():
         "CK":projectKey,
         "Content-Type": "application/json",
     }
-	payload=[{"id":trashcountId, "value":[0]}]
+    payload=[{"id":trashcountId, "value":[0]}]
     response = requests.post(apiURL, headers=headers, data=json.dumps(payload))
