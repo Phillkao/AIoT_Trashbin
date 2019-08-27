@@ -28,10 +28,6 @@ def get_distance():
     distance_in = distance_cm / 2.5
     return (distance_cm, distance_in)
 
-while True:
-    print("cm=%f\tinches=%f" % get_distance())
-    time.sleep(1)
-
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(trigger_pin, GPIO.OUT)
 GPIO.setup(echo_pin, GPIO.IN)
@@ -56,7 +52,7 @@ def get_distance():
     distance_cm = pulse_len * 340 *100 /2
     distance_in = distance_cm / 2.5
     #return (distance_cm, distance_in)
-	return distance_cm
+    return distance_cm
 
 def PiDevice_GetChoInBo_Distance():
-	return get_distance()
+    return get_distance()
