@@ -32,6 +32,40 @@ def get_distance():
 def PiDevice_GetChoInBo_Distance():
     return get_distance()
 
+#####################################################
+
+trigger_pin_2 = 27
+echo_pin_2 = 22
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(trigger_pin_2, GPIO.OUT)
+GPIO.setup(echo_pin_2, GPIO.IN)
+
+def send_trigger_pulse_2():
+    GPIO.output(trigger_pin_2, True)
+    time.sleep(0.001)
+    GPIO.output(trigger_pin_2, False)
+
+def wait_for_echo_2(value, timeout):
+    count = timeout
+    while GPIO.input(echo_pin_2) != value and count > 0:
+        count = count - 1
+
+def get_distance_2():
+    send_trigger_pulse_2()
+    wait_for_echo_2(True, 5000)
+    start = time.time()
+    wait_for_echo_2(False, 5000)
+    finish = time.time()
+    pulse_len = finish - start
+    distance_cm = pulse_len * 340 *100 /2
+    return distance_cm
+
+def PiDevice_GetChoInBo_Distance_2():
+    return get_distance_2()
+
+###########################################
+
 import picamera
 import time
 
