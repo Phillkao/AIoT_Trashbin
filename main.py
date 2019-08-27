@@ -8,3 +8,5 @@ if __name__ == '__main__':
 	
     ChoInBo_D = PiDevice_GetChoInBo_Distance()
     print(ChoInBo_D)
+	
+    PiDevice_GetCamera_Picture():
