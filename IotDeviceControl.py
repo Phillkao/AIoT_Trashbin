@@ -59,3 +59,18 @@ def IotDeviceState_TrashCount_PlusOne():
     
     payload=[{"id":trashcountId, "value":[int(recent_trash_count)+1]}]
     response = requests.post(apiURL, headers=headers, data=json.dumps(payload))
+	
+def IotDeviceState_TrashCount_Clean():
+    config = configparser.ConfigParser()
+    config.read('./cht.conf')
+    projectKey = config.get('device-key', 'projectKey')
+    deviceId   = config.get('device-key', 'deviceId')
+    trashcountId = config.get('device-key', 'trashcountId')
+	
+    apiURL = 'http://iot.cht.com.tw/iot/v1/device/' + deviceId + '/rawdata'
+    headers = { 
+        "CK":projectKey,
+        "Content-Type": "application/json",
+    }
+	payload=[{"id":trashcountId, "value":[0]}]
+    response = requests.post(apiURL, headers=headers, data=json.dumps(payload))
